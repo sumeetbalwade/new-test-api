@@ -45,8 +45,8 @@ function identifyCardType(number) {
 
 const validateCard = (req, res) => {
 	let number = req.query.number;
-	if (number == null) {
-		return res.status(200).json({
+	if (number === null || number === undefined || number === "") {
+		return res.status(404).json({
 			status: "failed",
 			cardNumber: null,
 			message: "NO Card number Found",
